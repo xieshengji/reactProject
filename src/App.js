@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// 应用根组件
+import React, { Component } from 'react';
+//注册路由
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom'
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    render() {
+        return (
+            <Router>
+                <Switch>{/* 只匹配其中一个 */}
+                <Route path='/login' component={Login}></Route>
+                    <Route path='/' component={Admin}></Route>
+                </Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;
